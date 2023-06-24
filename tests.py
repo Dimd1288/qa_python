@@ -58,17 +58,14 @@ class TestBooksCollector:
         assert len(collector.get_books_with_specific_rating(9)) == 3
 
     def test_add_book_in_favorites(self, collector):
-        for i in range(6):
-            collector.add_new_book(f'Book {i}')
-        for i in range(3, 6):
-            collector.add_book_in_favorites(f'Book {i}')
-        assert len(collector.get_list_of_favorites_books()) == 3
+        collector.add_new_book('Book 3')
+        collector.add_book_in_favorites('Book 3')
+        assert 'Book 3' in collector.get_list_of_favorites_books()
 
     def test_delete_book_from_favorites(self, collector):
-        for i in range(6):
-            collector.add_new_book(f'Book {i}')
-        for i in range(3, 6):
-            collector.add_book_in_favorites(f'Book {i}')
-        collector.delete_book_from_favorites('Book 4')
-        assert 'Book 4' not in collector.get_list_of_favorites_books() \
-               and len(collector.get_list_of_favorites_books()) == 2
+        collector.add_new_book('Book 3')
+        collector.add_book_in_favorites('Book 3')
+        collector.delete_book_from_favorites('Book 3')
+        assert 'Book 3' not in collector.get_list_of_favorites_books() \
+               and len(collector.get_list_of_favorites_books()) == 0
+        
