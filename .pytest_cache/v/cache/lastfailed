@@ -1,0 +1,6 @@
+{
+  "tests.py::TestBooksCollector::test_add_existing_book_book_not_added": true,
+  "tests.py::TestBooksCollector": true,
+  "tests.py::TestBooksCollector::test_set_rating_more_than_10_is_not_applied": true,
+  "tests.py::TestBooksCollector::test_get_books_with_specific_rating": true
+}
